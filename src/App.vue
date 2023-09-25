@@ -1,17 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <TodoPage />
 </template>
 
 <script>
-import TodoList from './components/TodoList.vue'
+import TodoPage from "./pages/TodoPage.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    TodoList
-  }
-}
+    TodoPage,
+  },
+};
 </script>
 
 <style>
