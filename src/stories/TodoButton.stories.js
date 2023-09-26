@@ -3,13 +3,45 @@ import TodoButton from "../components/TodoButton.vue";
 export default {
   title: "Components/TodoButton",
   component: TodoButton,
+  tags: ["autodocs"],
+  argTypes: {
+    backgroundColor: {
+      control: "color",
+    },
+    onClick: {},
+    size: {
+      control: {
+        type: "select",
+      },
+      options: ["small", "medium", "large"],
+    },
+  },
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { TodoButton },
-  template: '<TodoButton v-bind="$props">Click Me</TodoButton>',
-});
+export const Primary = {
+  args: {
+    primary: true,
+    label: "Primary",
+  },
+};
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Secondary = {
+  args: {
+    label: "Secondary",
+  },
+};
+
+export const Large = {
+  args: {
+    size: "large",
+    label: "Large",
+  },
+};
+
+export const Small = {
+  args: {
+    primary: true,
+    size: "small",
+    label: "Small",
+  },
+};
