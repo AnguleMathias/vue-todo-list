@@ -2,32 +2,31 @@
   <TodoPageWrap>
     <TodoSection>
       <h1 class="mb-4">Todo List</h1>
-      <form @submit.prevent="addTodo">
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            v-model="newTodo"
-            class="form-control"
-            placeholder="New Todo Item"
-            required
+      <div class="col">
+        <TodoInput @eventAddNewTask="onAddNewTask" />
+
+        <TodoList>
+          <TodoListItem
+            v-for="item in itemList"
+            :key="item.id"
+            :id="item.id"
+            :text="item.text"
+            :isDone="item.isDone"
+            @eventTaskStatusChange="onTaskStatusChange"
+            @eventTaskDelete="onTaskDelete"
           />
-          <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-      </form>
-      <TodoList>
-        <TodoListItem v-for="(todo, index) in todos" :key="index">
-          {{ todo }}
-        </TodoListItem>
-      </TodoList>
+        </TodoList>
+      </div>
     </TodoSection>
   </TodoPageWrap>
 </template>
 
 <script>
-import TodoPageWrap from "../components/TodoPageWrap.vue";
-import TodoSection from "../components/TodoSection.vue";
-import TodoList from "../components/TodoList.vue";
-import TodoListItem from "../components/TodoListItem.vue";
+import TodoPageWrap from "@/components/TodoPageWrap.vue";
+import TodoSection from "@/components/TodoSection.vue";
+import TodoList from "@/components/TodoList.vue";
+import TodoListItem from "@/components/TodoListItem.vue";
+import TodoInput from "@/components/TodoInput.vue";
 
 export default {
   components: {
@@ -35,19 +34,53 @@ export default {
     TodoSection,
     TodoList,
     TodoListItem,
+    TodoInput,
   },
   data() {
     return {
-      newTodo: "",
-      todos: [],
+      itemList: [],
     };
   },
   methods: {
-    addTodo() {
-      if (this.newTodo.trim() !== "") {
-        this.todos.push(this.newTodo);
-        this.newTodo = "";
+    onAddNewTask(taskName) {
+      const task = {
+        id: new Date().getTime(),
+        text: taskName,
+        isDone: false,
+      };
+
+      this.itemList.push(task);
+    },
+    onTaskStatusChange(id, checked) {
+      let item = this.itemList.find((i) => i.id == id);
+      if (item) {
+        item.isDone = checked;
       }
+    },
+    onTaskDelete(id) {
+      let index = this.itemList.findIndex((i) => i.id == id);
+      if (index > -1) {
+        this.itemList.splice(index, 1);
+      }
+    },
+    loadItemList() {
+      this.itemList = JSON.parse(localStorage.getItem("VuejsTodo")) || [];
+    },
+    updateItemList() {
+      localStorage.setItem("VuejsTodo", JSON.stringify(this.itemList));
+    },
+  },
+  mounted() {
+    // Load item list from local storage
+    this.loadItemList();
+  },
+  watch: {
+    itemList: {
+      handler() {
+        // save to localStorage
+        this.updateItemList();
+      },
+      deep: true,
     },
   },
 };

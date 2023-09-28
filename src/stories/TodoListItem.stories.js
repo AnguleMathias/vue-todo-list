@@ -3,13 +3,27 @@ import TodoListItem from "../components/TodoListItem.vue";
 export default {
   title: "Components/TodoListItem",
   component: TodoListItem,
+  tags: ["autodocs"],
+  argTypes: {
+    backgroundColor: {
+      control: "color",
+    },
+    onClick: {},
+  },
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { TodoListItem },
-  template: '<TodoListItem v-bind="$props">Item Text</TodoListItem>',
-});
+export const Default = {
+  args: {
+    id: 1,
+    text: "Task 1",
+    isDone: false,
+  },
+};
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Done = {
+  args: {
+    id: 2,
+    text: "Task 2",
+    isDone: true,
+  },
+};

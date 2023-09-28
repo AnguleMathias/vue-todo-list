@@ -1,8 +1,7 @@
 <template>
-  <div class="list-group">
-    <h3>List Items</h3>
+  <ul class="list mt-3">
     <slot></slot>
-  </div>
+  </ul>
 </template>
 
 <script>
@@ -10,3 +9,11 @@ export default {
   name: "TodoList",
 };
 </script>
+
+<style scoped>
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+</style>
