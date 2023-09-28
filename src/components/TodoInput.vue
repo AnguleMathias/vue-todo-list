@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import TodoButton from "@/components/TodoButton.vue";
+import TodoButton from "../components/TodoButton.vue";
 
 export default {
   name: "TodoInput",
