@@ -52,7 +52,6 @@ export default {
   border: none;
   font-size: 16px;
   font-weight: normal;
-  color: #fff;
   transition: all ease 400ms;
   box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.7);
   margin-right: 10px;
