@@ -1,5 +1,5 @@
 {
-  "name": "vue-todo-list",
+  "name": "vue-component-library-poc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -61,5 +61,5 @@
     "not ie 11"
   ],
   "readme": "ERROR: No README data found!",
-  "_id": "vue-todo-list@0.1.0"
+  "_id": "vue-component-library-poc@0.1.0"
 }

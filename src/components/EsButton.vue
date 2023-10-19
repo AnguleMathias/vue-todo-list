@@ -8,7 +8,7 @@
 import { reactive, computed } from "vue";
 
 export default {
-  name: "TodoButton",
+  name: "EsButton",
 
   props: {
     primary: {
@@ -36,10 +36,10 @@ export default {
     props = reactive(props);
     return {
       classes: computed(() => ({
-        "-button": true,
-        "-button--primary": props.primary,
-        "-button--secondary": !props.primary,
-        [`-button--${props.size || "medium"}`]: true,
+        "-es-button": true,
+        "-es-button--primary": props.primary,
+        "-es-button--secondary": !props.primary,
+        [`-es-button--${props.size || "medium"}`]: true,
       })),
       style: computed(() => ({
         backgroundColor: props.backgroundColor,
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-.-button {
+.-es-button {
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
@@ -62,25 +62,25 @@ export default {
   display: inline-block;
   line-height: 1;
 }
-.-button--primary {
+.-es-button--primary {
   color: white;
   background-color: #ff8c00;
 }
-.-button--secondary {
+.-es-button--secondary {
   color: white;
   background-color: #000000;
   opacity: 0.2;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
-.-button--small {
+.-es-button--small {
   font-size: 12px;
   padding: 10px 16px;
 }
-.-button--medium {
+.-es-button--medium {
   font-size: 14px;
   padding: 11px 20px;
 }
-.-button--large {
+.-es-button--large {
   font-size: 16px;
   padding: 12px 24px;
 }

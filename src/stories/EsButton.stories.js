@@ -1,8 +1,8 @@
-import TodoButton from "../components/TodoButton.vue";
+import EsButton from "../components/EsButton.vue";
 
 export default {
-  title: "Components/TodoButton",
-  component: TodoButton,
+  title: "Components/EsButton",
+  component: EsButton,
   tags: ["autodocs"],
   argTypes: {
     backgroundColor: {

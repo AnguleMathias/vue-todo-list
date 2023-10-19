@@ -1,14 +1,14 @@
 <template>
-  <TodoPage />
+  <CustomPage />
 </template>
 
 <script>
-import TodoPage from "./pages/TodoPage.vue";
+import CustomPage from "./pages/CustomPage.vue";
 
 export default {
   name: "App",
   components: {
-    TodoPage,
+    CustomPage,
   },
 };
 </script>
