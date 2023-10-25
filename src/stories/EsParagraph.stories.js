@@ -1,8 +1,8 @@
-import EsSectionTitle from "../components/EsSectionTitle.vue";
+import EsParagraph from "../components/EsParagraph.vue";
 
 export default {
-  title: "Components/EsSectionTitle",
-  component: EsSectionTitle,
+  title: "Components/EsParagraph",
+  component: EsParagraph,
   tags: ["autodocs"],
   argTypes: {
     variant: {
@@ -28,10 +28,10 @@ export default {
 
 export const Default = {
   args: {
-    variant: "h1",
-    content: "Default Section Title",
+    variant: "text",
+    content: "This is a sample paragraph",
     color: "#000000",
-    fontSize: "2rem",
-    fontWeight: "700",
+    fontSize: "1rem",
+    fontWeight: "400",
   },
 };
